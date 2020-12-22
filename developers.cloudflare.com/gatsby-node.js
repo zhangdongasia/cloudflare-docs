@@ -119,6 +119,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       demo: String
       breadcrumbs: Boolean
       difficulty: String
+      category: String
       hidden: Boolean
       hideChildren: Boolean
       order: Int

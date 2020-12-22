@@ -80,6 +80,7 @@ export const query = graphql`
       frontmatter {
         demo
         difficulty
+        category
         summary
         tags
         title
