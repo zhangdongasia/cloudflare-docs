@@ -24,7 +24,8 @@ meta:
         <strong>Price</strong>
       </td>
       <td style="text-align:center">
-        For details, refer to our <a href="https://www.cloudflare.com/plans/#overview">Plans page</a>
+        For details, refer to our
+        <a href="https://www.cloudflare.com/plans/#overview">Plans page</a>
       </td>
       <td>Price set by account team</td>
     </tr>
