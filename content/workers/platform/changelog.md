@@ -8,15 +8,15 @@ title: Changelog
 ## 2022-03-24
 
 - A new compatibility flag has been introduced, `minimal_subrequests` , which removes some features that were unintentionally being applied to same-zone `fetch()` calls. The flag will default to enabled on Tuesday, 2022-04-05, and is described in [Workers `minimal_subrequests` compatibility flag](https://developers.cloudflare.com/workers/platform/compatibility-dates/#minimal-subrequests).
-- When creating a `Response` with JavaScript-backed ReadableStreams, the `Body` mixin functions (e.g. `await response.text()` ) are now implemented.
-- The `IdentityTransformStream` creates a byte-oriented `TransformStream` implementation that simply passes bytes through unmodified. The readable half of the `TransformStream` supports BYOB-reads. It is important to note that `IdentityTransformStream` is identical to the current non-spec compliant `TransformStream` implementation, which will be updated soon to conform to the WHATWG Stream Standard. All current uses of `new TransformStream()` should be replaced with `new IdentityTransformStream()` to avoid potentially breaking changes later.
+- When creating a `Response` with JavaScript-backed ReadableStreams, the `Body` mixin functions (for example, `await response.text()` ) are now implemented.
+- The `IdentityTransformStream` creates a byte-oriented `TransformStream` implementation that simply passes bytes through unmodified. The readable half of the `TransformStream` supports bring your own buffer (BYOB) reads. It is important to note that `IdentityTransformStream` is identical to the current non-spec compliant `TransformStream` implementation, which will be updated soon to conform to the WHATWG Stream Standard. All current uses of `new TransformStream()` should be replaced with `new IdentityTransformStream()` to avoid potentially breaking changes later.
 
 ## 2022-03-17
 
 - The standard [ByteLengthQueuingStrategy](https://developer.mozilla.org/en-US/docs/Web/API/ByteLengthQueuingStrategy) and [CountQueuingStrategy](https://developer.mozilla.org/en-US/docs/Web/API/CountQueuingStrategy) classes are now available.
 - When the `capture_async_api_throws` flag is set, built-in Cloudflare-specific and Web Platform Standard APIs that return Promises will no longer throw errors synchronously and will instead return rejected promises. Exception is given with fatal errors such as out of memory errors.
 - Fix R2 publish date rendering.
-- Fix R2 bucket binding .get populating contentRange with garbage. contentRange is now undefined as intended.
+- Fix R2 bucket binding .get populating contentRange with garbage. contentRange is now undefined as intended. 
 - When using JavaScript-backed `ReadableStream`, it is now possible to use those streams with `new Response()`.
 
 ## 2022-03-11
@@ -35,7 +35,7 @@ title: Changelog
 ## 2022-02-25
 
 - The `TextDecoder` class now supports the full range of text encodings defined by the WHATWG Encoding Standard.
-- Both global `fetch()` and durable object `fetch()` now throw a TypeError when they receive a WebSocket in response to a request without the “Upgrade: websocket” header.
+- Both global `fetch()` and durable object `fetch()` now throw a TypeError when they receive a WebSocket in response to a request without the `Upgrade: websocket` header.
 - Durable Objects users may now store up to 50 GB of data across the objects in their account by default. As before, if you need more storage than that you can contact us for an increase.
 
 ## 2022-02-18
