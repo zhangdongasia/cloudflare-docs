@@ -1,7 +1,7 @@
 ---
 pcx-content-type: concept
 title: Rate limiting rules
-weight: 4
+weight: 5
 ---
 
 # Rate limiting rules
@@ -35,7 +35,7 @@ Refer to [Determining the request rate](/waf/rate-limiting-rules/request-rate/) 
 
 ## Important remarks
 
-Applying rate limiting rules to verified bots might affect Search Engine Optimization (SEO). For more information, refer to [Improve SEO](/fundamentals/get-started/basic-tasks/improve-seo/).
+Applying rate limiting rules to verified bots might affect Search Engine Optimization (SEO). For more information, refer to [Improve SEO](/fundamentals/get-started/task-guides/improve-seo/).
 
 ---
 

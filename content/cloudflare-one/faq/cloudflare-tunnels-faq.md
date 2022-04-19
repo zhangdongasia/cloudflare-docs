@@ -59,7 +59,17 @@ To log external visitor IPs, you will need to [configure an alternative method](
 
 Cloudflare Tunnel was previously named Warp during the beta phase. As Warp was added to the Argo product family, we changed the name to match.
 
-## How can I troubleshoot a Tunnel?
+## How can I troubleshoot a Tunnel that was configured from the Zero Trust dashboard?
+
+### Ensure that only one Tunnel is installed
+
+If you are unable to create a Tunnel using the installation script ("cloudflared service is already installed"), ensure that no other Tunnels are running as a service on this machine. Only a single Tunnel may run as a service on any given machine. Instead, we recommend adding additional routes to your existing Tunnel.  Alternatively, you can run `sudo cloudflared service uninstall` to uninstall the Tunnel.
+
+### Check your DNS records
+
+If you are unable to save your Tunnel's public hostname ("An A, AAAA, or CNAME record with that host already exists"), choose a different hostname or delete the existing DNS record. [Check the DNS records](/dns/manage-dns-records/how-to/create-dns-records/) for your domain from the [Cloudflare dashboard](https://dash.cloudflare.com).
+
+## How can I troubleshoot a Tunnel that was configured through the CLI?
 
 ### Run Tunnel with debug logging
 
@@ -90,9 +100,11 @@ $ cloudflared tunnel run
 Tunnel credentials file '/root/.cloudflared/928655cc-7f95-43f2-8539-2aba6cf3592d.json' doesn't exist or is not a file
 ```
 
-## I need help. How do I contact support?
+## How do I contact support?
 
-If you are having an issue with one or more tunnels, before contacting the Cloudflare support team:
+### I am having an issue with a locally-managed tunnel.
+
+Before contacting the Cloudflare support team:
 
 - Take note of any specific error messages and/or problematic behaviors.
 
@@ -109,3 +121,7 @@ If you are having an issue with one or more tunnels, before contacting the Cloud
 - Make sure that the `cloudflared daemon` is updated to the [latest version](https://github.com/cloudflare/cloudflared).
 
 - Gather any relevant error/access logs from your server.
+
+### End users are having issues connecting to private networks through the WARP client.
+
+If your end users are experiencing issues while accessing resources on private networks [exposed via Cloudflare Tunnel](/cloudflare-one/connections/connect-networks/private-net/), ensure you include [WARP Client logs](/cloudflare-one/faq/teams-devices-faq/#how-do-i-retrieve-warp-client-logs) when contacting Cloudflare support. These logs will help Cloudflare support understand the overall architecture of your machine and networks.

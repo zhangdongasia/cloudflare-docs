@@ -46,7 +46,7 @@ The new webhook will appear in the **Webhooks** card.
 
 If you use a service that is not covered by Cloudflare's currently available webhooks, you can configure your own. Follow steps 1-6 above, and enter a valid webhook URL. It is always recommended to use a secret for generic webhooks. Cloudflare will send your secret in the `cf-webhook-auth` header of every request made. If this header is not present, or is not your specified value, you should reject the webhook.
 
-After clicking save and test, your webhook should now be configured as a destination you can use to attach to policies. 
+After clicking **Save and Test**, your webhook should now be configured as a destination you can use to attach to policies.
 
 When Cloudflare sends you a webhook, it will have the following schema:
 
@@ -57,5 +57,11 @@ When Cloudflare sends you a webhook, it will have the following schema:
 ```
 
 In the above example, `"text"` will vary depending on the alert that was fired.
+
+### Use generic webhooks with Workers
+
+You can use Cloudflare Workers with a generic webhook to deliver notifications to any service that accepts webhooks.
+
+Cloudflare has an [example tool](https://github.com/cloudflare/cf-webhook-relay/) to help you understand how you can use [Workers](/workers/) and generic webhooks. The example provided transforms a generic webhook response in order for it to be delivered to Rocket.Chat. The code provided is heavily commented to guide you in the process of adapting the example to your needs.
 
 {{</content-column>}}
